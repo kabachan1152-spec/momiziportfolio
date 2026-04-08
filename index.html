@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Resin & Photo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 基本スタイル --- */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            background-color: #ffffff;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* --- ナビゲーション --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+            font-family: 'Zen Old Mincho', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- セクション共通 --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-family: 'Zen Old Mincho', serif;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        /* --- ギャラリー（フィルタリング） --- */
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 8px 25px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-family: 'Zen Old Mincho', serif;
+            transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+        .gallery-item.hide { display: none; }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* --- プロフィール --- */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            background: #fafafa;
+            padding: 40px;
+            border-radius: 4px;
+        }
+        .profile-img {
+            width: 150px; height: 150px; border-radius: 50%;
+            object-fit: cover; background: #eee;
+        }
+        .profile-text h3 { font-family: 'Zen Old Mincho', serif; }
+
+        /* --- お問い合わせフォーム（修正済みデザイン） --- */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-family: 'Zen Old Mincho', serif;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+        .contact-wrapper input[type="text"],
+        .contact-wrapper input[type="email"],
+        .contact-wrapper textarea {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .contact-wrapper input:focus,
+        .contact-wrapper textarea:focus {
+            border-bottom: 1px solid #333;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-family: 'Zen Old Mincho', serif;
+            letter-spacing: 0.2em;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .profile-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#gallery">GALLERY</a>
+    <a href="#profile">PROFILE</a>
+    <a href="#contact">CONTACT</a>
+</nav>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="resin">RESIN</button>
+        <button class="filter-btn" data-filter="photo">PHOTO</button>
+    </div>
+    <div class="gallery">
+        <div class="gallery-item" data-category="resin"><img src="resin1.jpg" alt="レジン作品1"></div>
+        <div class="gallery-item" data-category="photo"><img src="photo1.jpg" alt="風景写真1"></div>
+        <div class="gallery-item" data-category="resin"><img src="resin2.jpg" alt="レジン作品2"></div>
+        <div class="gallery-item" data-category="photo"><img src="photo2.jpg" alt="風景写真2"></div>
+    </div>
+</section>
+
+<section id="profile">
+    <h2>Profile</h2>
+    <div class="profile-container">
+        <img src="profile.jpg" alt="Profile" class="profile-img">
+        <div class="profile-text">
+            <h3>Creator Name</h3>
+            <p>ここにプロフィール文を記載します。レジンアクセサリーの制作や、日々の風景写真を記録しています。</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-wrapper">
+        <form id="custom-form" 
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIKrSkwJzATX5fRAsJfZZ-vNTEzbE-xQ4PJOK1Htfe5Yjdw/formResponse" 
+              method="POST" 
+              target="hidden_iframe" 
+              onsubmit="submitted=true;">
+            
+            <div class="form-group">
+                <label for="entry_name">NAME</label>
+                <input type="text" name="entry.715768483" id="entry_name" placeholder="お名前" required>
+            </div>
+
+            <div class="form-group">
+                <label for="entry_email">EMAIL</label>
+                <input type="email" name="entry.1959498802" id="entry_email" placeholder="メールアドレス" required>
+            </div>
+
+            <div class="form-group">
+                <label for="entry_message">MESSAGE</label>
+                <textarea name="entry.1239769267" id="entry_message" rows="5" placeholder="お問い合わせ内容" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+
+        <script type="text/javascript">var submitted=false;</script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                onload="if(submitted){alert('お問い合わせありがとうございます。送信が完了しました！'); window.location.reload();}"></iframe>
+    </div>
+</section>
+
+<script>
+    /* ギャラリーのフィルタリング機能 */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.classList.remove('hide');
+                } else {
+                    item.classList.add('hide');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
