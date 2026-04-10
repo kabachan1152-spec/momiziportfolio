@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- index.htmlと共通の基本スタイル --- */
+        /* 2. CSSでフォントを指定 */
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif; /* 全体の基本フォント */
             margin: 0;
             line-height: 1.8;
             background-color: #ffffff;
@@ -24,29 +24,36 @@
             top: 0;
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eee;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             z-index: 1000;
         }
+
         nav a {
             text-decoration: none;
             color: #666;
             font-weight: bold;
-            font-family: 'Zen Old Mincho', serif;
+            font-family: 'Zen Old Mincho', serif; /* 明朝体フォント */
             font-size: 0.9rem;
             letter-spacing: 0.1em;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #000;
         }
 
         h2 {
-            font-family: 'Zen Old Mincho', serif;
+            font-family: 'Zen Old Mincho', serif; /* タイトルを明朝体に */
             text-align: center;
             margin: 60px 0 40px;
             font-weight: 700;
             letter-spacing: 0.3em;
             text-transform: uppercase;
+            font-size: 2rem;
         }
 
-        /* --- 桜ギャラリー専用スタイル（サイズ調整済み） --- */
+        /* ギャラリー部分のスタイル */
         .gallery {
             display: flex;
             flex-direction: column;
@@ -56,26 +63,28 @@
 
         .gallery-item {
             width: 100%;
-            max-width: 800px; /* 少し大きめに調整 */
-            margin-bottom: 40px;
+            max-width: 800px;
+            margin-bottom: 60px;
+            text-align: center;
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
-            max-height: 85vh; /* 画面からはみ出さないよう調整 */
+            max-height: 85vh;
             object-fit: contain;
             display: block;
+            margin: 0 auto;
             border-radius: 2px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 軽く影をつけて作品を際立たせる */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .gallery-item p {
             font-family: 'Zen Old Mincho', serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #888;
-            text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
+            letter-spacing: 0.1em;
         }
     </style>
 </head>
@@ -87,11 +96,13 @@
 
 <section>
     <h2>Sakura Gallery</h2>
+    
     <div class="gallery">
         <div class="gallery-item">
             <img src="images/sakura/DSC_0209.JPG" alt="桜1">
             <p>DSC_0209</p>
         </div>
+        
         <div class="gallery-item">
             <img src="images/sakura/DSC_0210.JPG" alt="桜2">
             <p>DSC_0210</p>
