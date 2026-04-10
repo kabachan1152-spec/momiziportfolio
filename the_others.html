@@ -2,50 +2,46 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>The Others Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Others Gallery | Portfolio</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Noto Sans JP', sans-serif; margin: 0; color: #333; }
-        h2 { font-family: 'Zen Old Mincho', serif; text-align: center; margin: 40px 0; }
-        nav a { font-family: 'Zen Old Mincho', serif; text-decoration: none; color: #666; padding: 20px; display: inline-block; }
-
-        .gallery-item img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-        }
-
-        .gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+        /* スタイルは全て共通 */
+        body { font-family: 'Noto Sans JP', sans-serif; margin: 0; line-height: 1.8; background-color: #ffffff; color: #333; }
+        nav { position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid #eee; padding: 20px; text-align: center; z-index: 1000; }
+        nav a { text-decoration: none; color: #666; font-weight: bold; font-family: 'Zen Old Mincho', serif; font-size: 0.9rem; letter-spacing: 0.1em; }
+        h2 { font-family: 'Zen Old Mincho', serif; text-align: center; margin: 60px 0 40px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; }
+        .gallery { display: flex; flex-direction: column; align-items: center; padding: 0 20px 80px; }
+        .gallery-item { width: 100%; max-width: 600px; margin-bottom: 40px; }
+        .gallery-item img { width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 2px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
     </style>
 </head>
 <body>
-    <nav><a href="index.html">TOPへ戻る</a></nav>
-    
-    <section>
-        <h2>The Others Gallery</h2>
-        <div class="gallery">
-            <div class="gallery-item"><img src="images/the others/DSC_0056.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0096.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0098.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0167.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0170.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0171.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0172.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0243.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0249.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0251.JPG" alt="その他"></div>
-            <div class="gallery-item"><img src="images/the others/DSC_0253.JPG" alt="その他"></div>
-        </div>
-    </section>
+
+<nav>
+    <a href="index.html">TOPへ戻る</a>
+</nav>
+
+<section>
+    <h2>The Others Gallery</h2>
+    <div class="gallery">
+        <div class="gallery-item"><img src="images/the others/DSC_0056.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0096.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0098.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0167.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0170.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0171.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0172.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0243.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0249.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0251.JPG" alt="その他"></div>
+        <div class="gallery-item"><img src="images/the others/DSC_0253.JPG" alt="その他"></div>
+    </div>
+</section>
+
 </body>
 </html>
