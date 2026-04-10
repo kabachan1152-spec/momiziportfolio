@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Momizi Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* 桜ギャラリーと同じスタイル */
+        /* 字体（フォント）の指定を追加 */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            color: #333;
+        }
+
+        h2 {
+            font-family: 'Zen Old Mincho', serif;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        nav a {
+            font-family: 'Zen Old Mincho', serif;
+            text-decoration: none;
+            color: #666;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        /* ギャラリーのスタイル（桜ギャラリーと統一） */
         .gallery-item img {
-            width: 100%;       /* 横幅を親要素（枠）に合わせる */
-            max-width: 600px;  /* 写真が大きくなりすぎないよう上限を決める */
-            height: auto;      /* 縦横比を維持 */
+            width: 100%;
+            max-width: 600px;
+            height: auto;
             display: block;
-            margin: 20px auto; /* 写真を中央に寄せ、上下に余白 */
+            margin: 20px auto;
         }
 
         .gallery {
@@ -19,8 +44,6 @@
             align-items: center;
             padding: 20px;
         }
-
-        nav { padding: 10px; }
     </style>
 </head>
 <body>
@@ -29,17 +52,17 @@
     <section>
         <h2>Momizi Gallery</h2>
         <div class="gallery">
-            <div class="gallery-item"><img src="images/momizi/DSC_0044.JPG" alt="もみじ1"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0056.JPG" alt="もみじ2"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0072.JPG" alt="もみじ3"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0078.JPG" alt="もみじ4"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0082.JPG" alt="もみじ5"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0169.JPG" alt="もみじ6"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0179.JPG" alt="もみじ7"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0192.JPG" alt="もみじ8"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0206.JPG" alt="もみじ9"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0209.JPG" alt="もみじ10"></div>
-            <div class="gallery-item"><img src="images/momizi/DSC_0225.JPG" alt="もみじ11"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0044.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0056.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0072.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0078.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0082.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0169.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0179.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0192.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0206.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0209.JPG" alt="もみじ"></div>
+            <div class="gallery-item"><img src="images/momizi/DSC_0225.JPG" alt="もみじ"></div>
         </div>
     </section>
 </body>
