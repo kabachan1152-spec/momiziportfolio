@@ -55,57 +55,51 @@
             text-transform: uppercase;
         }
 
-        /* --- ギャラリー（フィルタリング） --- */
-        .filter-buttons {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .filter-btn {
-            background: none;
-            border: 1px solid #ccc;
-            padding: 8px 25px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 30px;
-            font-family: 'Zen Old Mincho', serif;
-            transition: 0.3s;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: #333;
-            color: #fff;
-            border-color: #333;
-        }
+        /* --- ギャラリー（横並び設定） --- */
         .gallery {
-    display: grid;
-    /* 1つの枠の最小サイズを250pxにして、横に自動で並べる */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px; /* 写真同士の隙間 */
-}
+            display: grid;
+            /* 最小サイズを250pxにして自動で横並び */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
 
-.gallery-item {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* 正方形に揃えると綺麗に見えます（お好みで 4/3 等に） */
-    overflow: hidden;
-    background: #f9f9f9;
-    position: relative;
-}
+        .gallery-item {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* 正方形 */
+            overflow: hidden;
+            background: #f9f9f9;
+            position: relative; /* タイトルを重ねる基準点 */
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 枠いっぱいに収める */
-    transition: 0.5s;
-}
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            display: block;
+        }
 
-/* 文字を写真の上に重ねる、または下に綺麗に配置する設定 */
-.gallery-item p {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 0.75rem;
-    text-align: center;
-    margin: 5px 0;
-}
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
 
-        /* --- プロフィール --- */
+        /* 【重要】タイトルを写真の上に重ねる設定 */
+        .gallery-item p {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2; /* 写真より前に出す */
+            margin: 0;
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+            color: #333;
+            font-family: 'Zen Old Mincho', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            pointer-events: none; /* 文字がリンクの邪魔をしないように */
+        }
+
+        /* --- プロフィール・フォーム --- */
         .profile-container {
             display: flex;
             align-items: center;
@@ -121,61 +115,23 @@
         }
         .profile-text h3 { font-family: 'Zen Old Mincho', serif; }
 
-        /* --- お問い合わせフォーム（修正済みデザイン） --- */
-        .contact-wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
+        .contact-wrapper { max-width: 600px; margin: 0 auto; text-align: left; }
+        .form-group { margin-bottom: 30px; display: flex; flex-direction: column; }
+        .form-group label { font-family: 'Zen Old Mincho', serif; font-size: 0.85rem; margin-bottom: 8px; color: #666; }
+        
+        .contact-wrapper input, .contact-wrapper textarea {
+            width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ccc;
+            font-family: 'Noto Sans JP', sans-serif; outline: none; background: transparent;
         }
-        .form-group {
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-        }
-        .form-group label {
-            font-family: 'Zen Old Mincho', serif;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            color: #666;
-            letter-spacing: 0.1em;
-        }
-        .contact-wrapper input[type="text"],
-        .contact-wrapper input[type="email"],
-        .contact-wrapper textarea {
-            width: 100%;
-            padding: 12px 0;
-            border: none;
-            border-bottom: 1px solid #ccc;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            background: transparent;
-            transition: border-color 0.3s;
-            box-sizing: border-box;
-        }
-        .contact-wrapper input:focus,
-        .contact-wrapper textarea:focus {
-            border-bottom: 1px solid #333;
-        }
+        
         .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-family: 'Zen Old Mincho', serif;
-            letter-spacing: 0.2em;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .submit-btn:hover {
-            background-color: #555;
+            display: block; width: 100%; padding: 18px; background-color: #333; color: #fff;
+            border: none; cursor: pointer; font-family: 'Zen Old Mincho', serif; letter-spacing: 0.2em;
         }
 
         @media (max-width: 600px) {
             .profile-container { flex-direction: column; text-align: center; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } /* スマホで2列 */
         }
     </style>
 </head>
@@ -191,15 +147,33 @@
     <h2>Gallery</h2>
     
     <div class="gallery">
-       <div class="gallery-item" data-category="photo"><a href="the_others.html"><img src="images/the others/DSC_0251.JPG" alt="その他ギャラリーへ"><p>THE OTHERS</p></a>
-</div>
-        <div class="gallery-item" data-category="photo"><a href="momizi.html"><img src="images/momizi/DSC_0169.JPG" alt="もみじギャラリーへ"><p>MOMIZI GALLERY</p></a>
-</div>
-        <div class="gallery-item" data-category="photo"><a href="ume.html"><img src="images/ume/DSC_0068.JPG" alt="梅ギャラリーへ"><p>UME GALLERY</p></a>
-</div>
-        <div class="gallery-item" data-category="photo"><a href="sakura.html"><img src="images/sakura/DSC_0045.JPG" alt="sakura"><p>クリックして桜ギャラリーへ</p>
-    </a>
-</div>
+        <div class="gallery-item">
+            <a href="the_others.html">
+                <p>THE OTHERS</p>
+                <img src="images/the others/DSC_0251.JPG" alt="others">
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="momizi.html">
+                <p>MOMIZI</p>
+                <img src="images/momizi/DSC_0169.JPG" alt="momizi">
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="ume.html">
+                <p>UME</p>
+                <img src="images/ume/DSC_0068.JPG" alt="ume">
+            </a>
+        </div>
+
+        <div class="gallery-item">
+            <a href="sakura.html">
+                <p>SAKURA</p>
+                <img src="images/sakura/DSC_0045.JPG" alt="sakura">
+            </a>
+        </div>
     </div>
 </section>
 
@@ -217,57 +191,25 @@
 <section id="contact">
     <h2>Contact</h2>
     <div class="contact-wrapper">
-        <form id="custom-form" 
-              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIKrSkwJzATX5fRAsJfZZ-vNTEzbE-xQ4PJOK1Htfe5Yjdw/formResponse" 
-              method="POST" 
-              target="hidden_iframe" 
-              onsubmit="submitted=true;">
-            
+        <form id="custom-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIKrSkwJzATX5fRAsJfZZ-vNTEzbE-xQ4PJOK1Htfe5Yjdw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
             <div class="form-group">
                 <label for="entry_name">NAME</label>
                 <input type="text" name="entry.715768483" id="entry_name" placeholder="お名前" required>
             </div>
-
             <div class="form-group">
                 <label for="entry_email">EMAIL</label>
                 <input type="email" name="entry.1959498802" id="entry_email" placeholder="メールアドレス" required>
             </div>
-
             <div class="form-group">
                 <label for="entry_message">MESSAGE</label>
                 <textarea name="entry.1239769267" id="entry_message" rows="5" placeholder="お問い合わせ内容" required></textarea>
             </div>
-
             <button type="submit" class="submit-btn">SEND MESSAGE</button>
         </form>
-
         <script type="text/javascript">var submitted=false;</script>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
-                onload="if(submitted){alert('お問い合わせありがとうございます。送信が完了しました！'); window.location.reload();}"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('お問い合わせありがとうございます。送信が完了しました！'); window.location.reload();}"></iframe>
     </div>
 </section>
-
-<script>
-    /* ギャラリーのフィルタリング機能 */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            galleryItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.classList.remove('hide');
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
