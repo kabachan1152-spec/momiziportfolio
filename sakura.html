@@ -86,6 +86,34 @@
             margin-top: 15px;
             letter-spacing: 0.1em;
         }
+        /* 最初はタイトルを隠しておく */
+.image-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+    
+    opacity: 0;            /* 透明にする（隠す） */
+    transition: 0.5s;      /* 0.5秒かけてふわっと表示させる */
+    transform: translateY(10px); /* 少し下にずらしておく */
+}
+
+/* 画像の枠(gallery-item)にマウスが乗ったとき */
+.gallery-item:hover .image-title {
+    opacity: 1;            /* 表示する */
+    transform: translateY(0);   /* 元の位置に戻る（下からスッと出る動き） */
+}
+
+/* ついでに画像自体も少し変化させるとオシャレです */
+.gallery-item img {
+    transition: 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.02); /* わずかに大きくする */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* 影を強くする */
+}
     </style>
 </head>
 <body>
