@@ -40,16 +40,17 @@
             letter-spacing: 0.1em;
         }
 
-        /* --- 【新規】ヒーローセクション（背景固定） --- */
+        /* --- ヒーローセクション（背景固定） --- */
         .hero-section {
             position: relative;
-            height: 100vh; /* 画面いっぱいの高さ */
+            height: 100vh;
             width: 100%;
-            background-image: url('images/sakura/DSC_0045.JPG'); /* 背景にしたい画像パス */
+            /* .jpg に書き換え */
+            background-image: url('images/sakura/dsc_0045.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* これが背景固定の肝です */
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,120 +65,43 @@
             font-family: 'Zen Old Mincho', serif;
         }
 
-        .hero-text p {
-            font-size: 1rem;
-            letter-spacing: 0.2em;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+        .hero-text p { font-size: 1rem; letter-spacing: 0.2em; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-text h1 { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 0.1em; margin: 10px 0 0; text-shadow: 0 2px 15px rgba(0,0,0,0.4); text-transform: uppercase; }
 
-        .hero-text h1 {
-            font-size: clamp(2rem, 8vw, 4rem); /* 画面サイズに合わせて可変 */
-            letter-spacing: 0.1em;
-            margin: 10px 0 0;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
-            text-transform: uppercase;
-        }
-
-        /* --- 【新規】コンテンツ全体を包む枠 --- */
         .content-wrapper {
             position: relative;
-            z-index: 10; /* 背景画像より上に重ねる */
-            background-color: #ffffff; /* 重なる部分は不透明な白 */
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.1); /* 境界に影 */
+            z-index: 10;
+            background-color: #ffffff;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
         }
 
-        /* --- セクション共通 --- */
-        section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-family: 'Zen Old Mincho', serif;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 700;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-        }
+        section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
+        h2 { font-family: 'Zen Old Mincho', serif; text-align: center; margin-bottom: 40px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; }
 
-        /* --- ギャラリー --- */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            background: #f9f9f9;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-            display: block;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f9f9f9; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; display: block; }
+        .gallery-item:hover img { transform: scale(1.05); }
 
         .gallery-item p {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-            margin: 0;
-            padding: 5px 12px;
-            background: rgba(255, 255, 255, 0.8);
-            color: #333;
-            font-family: 'Zen Old Mincho', serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            pointer-events: none;
+            position: absolute; top: 10px; left: 10px; z-index: 2; margin: 0; padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.8); color: #333; font-family: 'Zen Old Mincho', serif;
+            font-size: 0.75rem; letter-spacing: 0.1em; pointer-events: none;
         }
 
-        /* --- プロフィール・フォーム --- */
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            background: #fafafa;
-            padding: 40px;
-            border-radius: 4px;
-        }
-        .profile-img {
-            width: 150px; height: 150px; border-radius: 50%;
-            object-fit: cover; background: #eee;
-        }
+        .profile-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; background: #fafafa; padding: 40px; border-radius: 4px; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; background: #eee; }
         .profile-text h3 { font-family: 'Zen Old Mincho', serif; }
 
         .contact-wrapper { max-width: 600px; margin: 0 auto; text-align: left; }
         .form-group { margin-bottom: 30px; display: flex; flex-direction: column; }
         .form-group label { font-family: 'Zen Old Mincho', serif; font-size: 0.85rem; margin-bottom: 8px; color: #666; }
-        
-        .contact-wrapper input, .contact-wrapper textarea {
-            width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ccc;
-            font-family: 'Noto Sans JP', sans-serif; outline: none; background: transparent;
-        }
-        
-        .submit-btn {
-            display: block; width: 100%; padding: 18px; background-color: #333; color: #fff;
-            border: none; cursor: pointer; font-family: 'Zen Old Mincho', serif; letter-spacing: 0.2em;
-        }
+        .contact-wrapper input, .contact-wrapper textarea { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ccc; font-family: 'Noto Sans JP', sans-serif; outline: none; background: transparent; }
+        .submit-btn { display: block; width: 100%; padding: 18px; background-color: #333; color: #fff; border: none; cursor: pointer; font-family: 'Zen Old Mincho', serif; letter-spacing: 0.2em; }
 
         @media (max-width: 600px) {
             .profile-container { flex-direction: column; text-align: center; }
             .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-            /* モバイルでは背景固定を解除（動作を安定させるため） */
             .hero-section { background-attachment: scroll; }
         }
     </style>
@@ -195,38 +119,37 @@
 
 <div class="hero-section">
     <div class="hero-text">
-        <p>By: ichinose momizi</p>
+        <p>By: kabachan</p>
         <h1>ICHINOSE MOMIZI PORTFOLIO</h1>
     </div>
 </div>
 
 <div class="content-wrapper">
-
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery">
             <div class="gallery-item">
                 <a href="the_others.html">
                     <p>THE OTHERS</p>
-                    <img src="images/the others/DSC_0251.JPG" alt="others">
+                    <img src="images/the others/dsc_0251.jpg" alt="others" loading="lazy" decoding="async">
                 </a>
             </div>
             <div class="gallery-item">
                 <a href="momizi.html">
                     <p>MOMIZI</p>
-                    <img src="images/momizi/DSC_0169.JPG" alt="momizi">
+                    <img src="images/momizi/dsc_0169.jpg" alt="momizi" loading="lazy" decoding="async">
                 </a>
             </div>
             <div class="gallery-item">
                 <a href="ume.html">
                     <p>UME</p>
-                    <img src="images/ume/DSC_0068.JPG" alt="ume">
+                    <img src="images/ume/dsc_0068.jpg" alt="ume" loading="lazy" decoding="async">
                 </a>
             </div>
             <div class="gallery-item">
                 <a href="sakura.html">
                     <p>SAKURA</p>
-                    <img src="images/sakura/DSC_0045.JPG" alt="sakura">
+                    <img src="images/sakura/dsc_0045.jpg" alt="sakura" loading="lazy" decoding="async">
                 </a>
             </div>
         </div>
@@ -235,36 +158,15 @@
     <section id="profile">
         <h2>Profile</h2>
         <div class="profile-container">
-            <img src="images/Profileaa/Profilef.jpg" alt="Profile.jpg" class="profile-img">
+            <img src="images/Profileaa/profilef.jpg" alt="Profile.jpg" class="profile-img">
             <div class="profile-text">
                 <h3>一ノ瀬 椛</h3>
-                <p>レジンアクセサリーの制作や、日々の風景写真を記録しています。光と影をテーマに活動しています。</p>
+                <p>レジンアクセサリーの制作や、日々の風景写真を記録しています。</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-wrapper">
-            <form id="custom-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIKrSkwJzATX5fRAsJfZZ-vNTEzbE-xQ4PJOK1Htfe5Yjdw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-                <div class="form-group">
-                    <label for="entry_name">NAME</label>
-                    <input type="text" name="entry.715768483" id="entry_name" placeholder="お名前" required>
-                </div>
-                <div class="form-group">
-                    <label for="entry_email">EMAIL</label>
-                    <input type="email" name="entry.1959498802" id="entry_email" placeholder="メールアドレス" required>
-                </div>
-                <div class="form-group">
-                    <label for="entry_message">MESSAGE</label>
-                    <textarea name="entry.1239769267" id="entry_message" rows="5" placeholder="お問い合わせ内容" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">SEND MESSAGE</button>
-            </form>
-            <script type="text/javascript">var submitted=false;</script>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('お問い合わせありがとうございます。送信が完了しました！'); window.location.reload();}"></iframe>
-        </div>
-    </section>
+    </div>
 
-</div> </body>
+</body>
 </html>
