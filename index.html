@@ -165,7 +165,37 @@
             </div>
         </div>
     </section>
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-wrapper">
+        <form id="custom-form" 
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdtIKrSkwJzATX5fRAsJfZZ-vNTEzbE-xQ4PJOK1Htfe5Yjdw/formResponse" 
+              method="POST" 
+              target="hidden_iframe" 
+              onsubmit="submitted=true;">
+            
+            <div class="form-group">
+                <label for="entry_name">NAME</label>
+                <input type="text" name="entry.715768483" id="entry_name" placeholder="お名前" required>
+            </div>
 
+            <div class="form-group">
+                <label for="entry_email">EMAIL</label>
+                <input type="email" name="entry.1959498802" id="entry_email" placeholder="メールアドレス" required>
+            </div>
+
+            <div class="form-group">
+                <label for="entry_message">MESSAGE</label>
+                <textarea name="entry.1239769267" id="entry_message" rows="5" placeholder="お問い合わせ内容" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+
+        <script type="text/javascript">var submitted=false;</script>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                onload="if(submitted){alert('お問い合わせありがとうございます。送信が完了しました！'); window.location.reload();}"></iframe>
+    </div>
     </div>
 
 </body>
