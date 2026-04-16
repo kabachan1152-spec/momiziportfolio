@@ -10,9 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* 2. CSSでフォントを指定 */
         body {
-            font-family: 'Noto Sans JP', sans-serif; /* 全体の基本フォント */
+            font-family: 'Noto Sans JP', sans-serif;
             margin: 0;
             line-height: 1.8;
             background-color: #ffffff;
@@ -24,12 +23,13 @@
             top: 0;
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eee;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             z-index: 1000;
         }
 
         nav a {
+            margin: 0 15px;
             text-decoration: none;
             color: #666;
             font-weight: bold;
@@ -38,33 +38,48 @@
             letter-spacing: 0.1em;
         }
 
-        /* ギャラリー全体の並び方（縦に並べる） */
         section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Zen Old Mincho', serif;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+
+        .gallery {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0 20px 80px;
         }
 
-        /* 各画像の枠 */
         .gallery-item {
             position: relative;
             width: 100%;
-            max-width: 600px; /* PCで見ても大きすぎないサイズ */
-            margin-bottom: 40px;
+            max-width: 600px;
+            margin-bottom: 60px;
         }
 
-        /* 画像自体の設定 */
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
             border-radius: 2px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* 柔らかい影 */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: 0.5s;
         }
 
-        /* 文字の設定（画像に重ねる） */
+        .gallery-item:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
         .image-title {
             position: absolute;
             bottom: 20px;
@@ -76,37 +91,25 @@
             font-size: 0.85rem;
             color: #333;
             letter-spacing: 0.1em;
-            opacity: 0;             /* 最初は隠す */
-            transition: 0.5s;       /* ふわっと出す */
-            transform: translateY(10px); /* 少し下にずらしておく */
-        }
-
-        /* 画像の枠(gallery-item)にマウスが乗ったとき */
-        .gallery-item:hover .image-title {
-            opacity: 1;            /* 表示する */
-            transform: translateY(0);   /* 元の位置に戻る（下からスッと出る動き） */
-        }
-
-        /* ついでに画像自体も少し変化させるとオシャレです */
-        .gallery-item img {
+            opacity: 0;
             transition: 0.5s;
+            transform: translateY(10px);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.02); /* わずかに大きくする */
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* 影を強くする */
+        .gallery-item:hover .image-title {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html">← BACK TO TOP</a>
+    <a href="index.html">BACK TO TOP</a>
 </nav>
 
 <section>
     <h2>Sakura Gallery</h2>
-    
     <div class="gallery">
         <div class="gallery-item"><img src="images/sakura/DSC_0016.jpg" alt="桜" loading="lazy" decoding="async"><p class="image-title">SAKURA - 春の光</p></div>
         <div class="gallery-item"><img src="images/sakura/DSC_0026.jpg" alt="桜" loading="lazy" decoding="async"></div>
