@@ -221,10 +221,10 @@ nav a {
             pointer-events: none;
         }
 
-        /* --- プロフィール --- */
+        /* --- プロフィール修正 --- */
         .profile-container {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* 上揃えに変更 */
             gap: 40px;
             flex-wrap: wrap;
             background: #fafafa;
@@ -240,9 +240,42 @@ nav a {
             background: #eee;
         }
 
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
         .profile-text h3 {
             font-family: 'Zen Old Mincho', serif;
             margin-top: 0;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-main-text {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .profile-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .detail-item {
+            flex: 1;
+            min-width: 200px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item strong {
+            display: block;
+            color: #666;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
         }
 
         /* --- お問い合わせフォーム（枠線追加） --- */
@@ -308,10 +341,11 @@ nav a {
 
         /* --- レスポンシブ --- */
         @media (max-width: 600px) {
-            .profile-container { flex-direction: column; text-align: center; }
+            .profile-container { flex-direction: column; text-align: center; align-items: center; }
             .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
             .hero-section { background-attachment: scroll; }
             .contact-wrapper { padding: 30px 20px; }
+            .profile-details { flex-direction: column; gap: 15px; text-align: left; }
         }
     </style>
 </head>
@@ -379,12 +413,22 @@ nav a {
             <img src="images/Profileaa/Profilef.jpg" alt="Profile" class="profile-img" loading="lazy" decoding="async">
             <div class="profile-text">
                 <h3>一ノ瀬 椛</h3>
-                <p>Webデザイナー / フォトグラファー
-大阪を拠点に活動しています。
-Webデザイナーとしての視点を持ち、サイト制作に最適な「伝わる写真」を撮影いたします。
-制作の現場では、写真素材の良し悪しがサイトの成果を左右することを実感してきました。だからこそ、私は自らカメラを手に取り、デザインのレイアウトを想定した撮影を行っています。望遠レンズ特有の柔らかなボケ味を活かし、被写体を際立たせた清潔感のある描写を得意としています。
-店舗の雰囲気、商品のディテール、プロフィール写真など、Webサイトに必要なビジュアルをトータルでご提案いたします。
-【活動拠点】 大阪府（関西近郊への出張撮影も承ります）【対応業務】 Webサイト制作、店舗・商品撮影、イメージカット撮影</p>
+                <div class="profile-main-text">
+                    Webデザイナー / フォトグラファー。<br>
+                    大阪を拠点に活動しています。Webデザイナーとしての視点を持ち、サイト制作に最適な「伝わる写真」を撮影いたします。<br><br>
+                    制作の現場では、写真素材の良し悪しがサイトの成果を左右することを実感してきました。だからこそ、私は自らカメラを手に取り、デザインのレイアウトを想定した撮影を行っています。望遠レンズ特有の柔らかなボケ味を活かし、被写体を際立たせた清潔感のある描写を得意としています。<br><br>
+                    店舗の雰囲気、商品のディテール、プロフィール写真など、Webサイトに必要なビジュアルをトータルでご提案いたします。
+                </div>
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <strong>【活動拠点】</strong>
+                        大阪府（関西近郊への出張撮影も承ります）
+                    </div>
+                    <div class="detail-item">
+                        <strong>【対応業務】</strong>
+                        Webサイト制作、店舗・商品撮影、イメージカット撮影
+                    </div>
+                </div>
             </div>
         </div>
     </section>
