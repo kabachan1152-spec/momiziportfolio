@@ -91,52 +91,55 @@
     text-transform: uppercase;
 }
 
-/* --- ナビゲーションバー（絶対にはみ出さない設定） --- */
+/* --- ナビゲーションバー：さらに凝縮版 --- */
 nav {
     display: flex;
-    justify-content: center; /* 常に中央揃え */
+    justify-content: center; 
     align-items: center;
     width: 100%;
-    max-width: 100%;
-  　height: auto; /* 画面幅を超えないように制限 */
+    max-width: 100vw;
+    padding: 12px 0;
     box-sizing: border-box;
-    padding: 15px 5px;
-    gap: 3vw; /* 画面幅に合わせて隙間を自動調整 */
-    overflow: hidden; /* 万が一のはみ出しをカット */
+    /* 隙間をさらに詰めました（PCでは15px、スマホでは自動縮小） */
+    gap: clamp(8px, 2.5vw, 15px); 
 }
 
 nav a {
     text-decoration: none;
     color: #666;
-    white-space: nowrap; /* 文字の途中で改行させない */
-    font-size: clamp(0.7rem, 3vw, 0.9rem); /* 画面幅に合わせて文字サイズを自動伸縮 */
+    white-space: nowrap;
+    /* 文字サイズをもう一段階小さく設定 (11px〜14pxの間で動く) */
+    font-size: clamp(11px, 2.8vw, 14px); 
+    letter-spacing: 0.01em; /* 字間を最小限に */
+    font-family: 'Zen Old Mincho', serif;
 }
 
-/* SNSエリアの調整 */
+/* SNSエリア */
 .sns-area {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 5px;
-    padding-left: 10px;
+    /* アイコンとCONTACTの距離をギュッと詰める */
+    gap: 6px; 
+    margin-left: 2px;
+    padding-left: 8px;
     border-left: 1px solid rgba(0,0,0,0.1);
-    flex-shrink: 0; /* SNSアイコンが潰れないように保護 */
+    flex-shrink: 0;
 }
 
 .sns-area img, 
 .sns-area svg {
-    width: 20px;
-    height: 20px;
+    /* アイコンも18pxに固定して横幅を節約 */
+    width: 18px;
+    height: 18px;
 }
 
-/* スマホ用の微調整（さらに画面が小さい時） */
-@media (max-width: 380px) {
+/* 非常に幅の狭いスマホ（iPhone SEなど）への最終対策 */
+@media (max-width: 350px) {
     nav {
-        gap: 2vw; /* さらに隙間を詰める */
+        gap: 5px; /* 隙間を限界まで詰める */
     }
-    .sns-area {
-        padding-left: 5px;
-        gap: 5px;
+    nav a {
+        font-size: 10px !important; /* 最小サイズ */
     }
 }
         .content-wrapper {
