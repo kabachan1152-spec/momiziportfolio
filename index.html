@@ -91,34 +91,43 @@
     text-transform: uppercase;
 }
 
-/* --- 3. ナビゲーションバー（スマホの端切れ防止） --- */
+/* --- ナビゲーションバー（中央に凝縮する設定） --- */
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 中央揃えを維持 */
     align-items: center;
-    flex-wrap: nowrap; /* 折り返さず、ぎゅっと詰める */
-    padding: 15px 5px; /* 左右の余白を最小限に */
+    flex-wrap: nowrap;
+    padding: 12px 5px; /* 上下パディングを少し詰め、左右は最小限に */
     width: 100%;
     box-sizing: border-box;
-    gap: 12px;
+    gap: 12px; /* メニュー間の基本間隔 */
 }
 
-/* 文字サイズと余白の自動調整（スマホ用） */
+/* スマホ用の微調整：ここで「ギュッ」とさせます */
 @media (max-width: 480px) {
     nav {
-        gap: 8px; /* 全体の間隔を狭める */
+        gap: 8px; /* 全体の間隔をさらに詰める（これで中央に寄ります） */
     }
+    
     nav a {
-        font-size: 0.75rem !important; /* リンクの文字を小さく */
-        letter-spacing: 0.02em; /* 字間も少し詰める */
+        font-size: 0.8rem !important; /* 文字を少しだけ小さく */
+        letter-spacing: 0.02em; /* 字間を詰める */
+        padding: 0 2px; /* リンク文字周りの余白を削る */
     }
+
     .sns-area {
-        margin-left: 2px !important;
-        padding-left: 5px !important;
-        gap: 3px !important; /* アイコン同士を近づける */
+        margin-left: 2px !important; /* CONTACTとの距離を最小に */
+        padding-left: 8px !important; /* 仕切り線との距離を詰める */
+        gap: 6px !important; /* アイコン同士を近づける */
+        border-left: 1px solid rgba(0,0,0,0.1) !important;
+    }
+    
+    .sns-area img, 
+    .sns-area svg {
+        width: 18px !important; /* アイコンをほんの少し（2px）だけ小さくして余裕を作る */
+        height: 18px !important;
     }
 }
-
         .content-wrapper {
             position: relative;
             z-index: 10;
