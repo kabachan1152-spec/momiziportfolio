@@ -40,44 +40,39 @@
             letter-spacing: 0.1em;
         }
 
-        /* --- ヒーローセクション --- */
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            background-image: url('images/DSC_614.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
+      /* ヒーローセクションの基盤 */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* はみ出し防止 */
+}
 
-        .hero-text {
-            color: white;
-            text-align: left;
-            width: 80%;
-            max-width: 1000px;
-            font-family: 'Zen Old Mincho', serif;
-        }
+/* 背景画像専用のレイヤー（ここでパララックスを再現） */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/DSC_614.jpg'); /* あなたの背景画像パス */
+    background-size: cover;
+    background-position: center;
+    /* スマホ対応の肝：fixedを使わず、要素自体を固定 */
+    position: fixed; 
+    z-index: -1;
+    /* 全体の背景として固定されるように設定 */
+}
 
-        .hero-text p {
-            font-size: 1rem;
-            letter-spacing: 0.2em;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2rem, 8vw, 4rem);
-            letter-spacing: 0.1em;
-            margin: 10px 0 0;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
-            text-transform: uppercase;
-        }
+.hero-text {
+    text-align: center;
+    color: white;
+    z-index: 1; /* 文字を画像より前に出す */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
 
         .content-wrapper {
             position: relative;
