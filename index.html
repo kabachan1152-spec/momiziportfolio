@@ -109,12 +109,27 @@ nav a {
     margin: 0; /* PCでも基本は0にしてgapで調整するのが管理しやすいです */
 }
 
+/* --- SNSエリアの修正 --- */
 .sns-area {
     display: flex;
     align-items: center;
-    gap: 15px; /* アイコン間の余白 */
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,0.1);
+    
+    /* 1. アイコン同士の間隔を 10px に広げる */
+    gap: 10px !important; 
+
+    /* 2. デベロッパーツールで見えていた左側の余白を微調整 */
+    /* 画像では Margin 5px / Padding 10px となっていたので、バランスを整えます */
+    margin-left: 5px; 
+    padding-left: 10px;
+    border-left: 1px solid rgba(0,0,0,0.1); /* 仕切り線 */
+}
+
+/* スマホ版でも同じ間隔を維持したい場合 */
+@media (max-width: 768px) {
+    .sns-area {
+        gap: 10px !important; /* スマホでもしっかり 10px 離す */
+        padding-left: 8px;    /* 画面幅が狭いので、左の余白だけ少し詰める */
+    }
 }
 
 /* --- スマホ版（画面幅が768px以下のとき）：ギュッと凝縮 --- */
