@@ -91,74 +91,55 @@
     text-transform: uppercase;
 }
 
-/* --- ナビゲーションバー：さらに凝縮版 --- */
-nav {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    padding: 12px 0;
-    box-sizing: border-box;
-    /* 隙間をさらに詰めました（PCでは15px、スマホでは自動縮小） */
-    gap: clamp(8px, 2.5vw, 15px); 
-}
-
-/* --- ナビゲーションリンクの修正 --- */
-nav a {
-    text-decoration: none;
-    color: #666;
-    white-space: nowrap;
-    font-size: 13px;
-    font-family: 'Zen Old Mincho', serif;
-    
-    /* 重要：オレンジ色の余白（margin）を強制的にゼロにする */
-    margin: 0 !important; 
-    
-    /* もし青い部分（padding）も広すぎるならここも調整 */
-    padding: 0 2px; 
-}
-
-/* --- 親要素（nav）の隙間を直接コントロール --- */
+/* --- PC版（デフォルト）：ゆったりした設定 --- */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    box-sizing: border-box;
-    padding: 12px 0;
-    
-    /* オレンジ色の隙間をこの gap だけで管理する */
-    /* 8pxをさらに詰めて 5px くらいにすると、かなり中央に寄ります */
-    gap: 5px; 
+    padding: 20px 0;
+    gap: 30px; /* PCではメニュー同士の間隔を広く取る */
 }
 
-/* SNSエリア */
+nav a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-family: 'Zen Old Mincho', serif;
+    margin: 0; /* PCでも基本は0にしてgapで調整するのが管理しやすいです */
+}
+
 .sns-area {
     display: flex;
     align-items: center;
-    /* アイコンとCONTACTの距離をギュッと詰める */
-    gap: 6px; 
-    margin-left: 2px;
-    padding-left: 8px;
+    gap: 15px; /* アイコン間の余白 */
+    padding-left: 20px;
     border-left: 1px solid rgba(0,0,0,0.1);
-    flex-shrink: 0;
 }
 
-.sns-area img, 
-.sns-area svg {
-    /* アイコンも18pxに固定して横幅を節約 */
-    width: 18px;
-    height: 18px;
-}
-
-/* 非常に幅の狭いスマホ（iPhone SEなど）への最終対策 */
-@media (max-width: 350px) {
+/* --- スマホ版（画面幅が768px以下のとき）：ギュッと凝縮 --- */
+@media (max-width: 768px) {
     nav {
-        gap: 5px; /* 隙間を限界まで詰める */
+        gap: 8px; /* スマホでは間隔を最小限に */
+        padding: 12px 5px;
     }
+
     nav a {
-        font-size: 10px !important; /* 最小サイズ */
+        font-size: 12px; /* 文字を少し小さく */
+        margin: 0 !important; /* オレンジ色の余白を強制排除 */
+        padding: 0 2px;
+    }
+
+    .sns-area {
+        gap: 5px; /* アイコン同士を近づける */
+        padding-left: 8px;
+        margin-left: 0;
+    }
+    
+    .sns-area img, 
+    .sns-area svg {
+        width: 18px; /* スマホではアイコンも少し微調整 */
+        height: 18px;
     }
 }
         .content-wrapper {
