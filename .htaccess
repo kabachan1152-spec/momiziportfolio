@@ -1,4 +1,0 @@
-DirectoryIndex index.html
-RewriteEngine on
-RewriteCond %{THE_REQUEST} ^.*/index.html
-RewriteRule ^(.*)index.html$ http://ichinosemomizi.com/$1 [R=301,L]
